@@ -1,9 +1,9 @@
 <template>
   <div class="header">
     <nav class="header__navigation">
-      <NuxtLink to="#" class="nav__link">О нас</NuxtLink>
-      <NuxtLink to="#" class="nav__link">О нас</NuxtLink>
-      <NuxtLink to="#" class="nav__link">О нас</NuxtLink>
+      <NuxtLink to="#" class="nav__link">главная</NuxtLink>
+      <NuxtLink to="#" class="nav__link">приложение</NuxtLink>
+      <NuxtLink to="#" class="nav__link">о нас</NuxtLink>
     </nav>
     <Authorization/>
   </div>

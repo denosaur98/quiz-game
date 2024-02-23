@@ -6,6 +6,10 @@
       "/_nuxt/assets/thirds.png",
       "/_nuxt/assets/thirds_two.png",
       "/_nuxt/assets/quarter.png"
-    ]
+    ],
+    "variants": [
+      "a", "b", "c"
+    ],
+    "correct": ["a", "b"]
   }
 }

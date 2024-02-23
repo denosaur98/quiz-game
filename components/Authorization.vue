@@ -168,12 +168,13 @@ function signIn() {
     border-radius: 5px;
     z-index: 2;
     position: fixed;
-    width: 500px;
-    height: 500px;
+    width: 510px;
+    height: 510px;
     top: 50%;
     left: 50%;
     background: #fff;
     transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 10px 1px #c5c5c5;
 
     .modal__title {
       font-size: 50px;
