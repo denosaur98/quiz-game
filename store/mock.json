@@ -1,0 +1,11 @@
+{
+  "task1": {
+    "title": "Какая форма показывает трети ?",
+    "img": "../assets/quarter.png",
+    "images": [
+      "/_nuxt/assets/thirds.png",
+      "/_nuxt/assets/thirds_two.png",
+      "/_nuxt/assets/quarter.png"
+    ]
+  }
+}
