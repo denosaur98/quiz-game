@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
@@ -15,7 +16,10 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/vue-fontawesome": "^3.0.6",
+    "build-deploy": "^1.0.2",
+    "gh-pages": "^6.1.1",
     "nuxt": "^3.10.3",
+    "push-dir": "^0.4.1",
     "sass": "^1.71.1",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0",
