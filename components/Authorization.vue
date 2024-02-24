@@ -18,7 +18,7 @@
     </div>
     <div class="sign__overlay" v-if="isSignOpen" @click="toggleSign"></div>
     <div class="sign__modal" v-if="isSignOpen">
-      <button class="modal__close">
+      <button class="modal__close" @click="toggleSign">
         <FontAwesomeIcon :icon="faXmark" class="close__icon"/>
       </button>
       <h1 class="modal__title">вход</h1>
@@ -175,6 +175,11 @@ function signIn() {
     background: #fff;
     transform: translate(-50%, -50%);
     box-shadow: 1px 1px 10px 1px #c5c5c5;
+
+    @media (max-width: 550px) {
+      width: 100%;
+      height: 100%;
+    }
 
     .modal__title {
       font-size: 50px;

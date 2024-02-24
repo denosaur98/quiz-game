@@ -98,7 +98,8 @@ function submitAnswer(id) {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 92.4vh;
+  height: 849.4px;
+  min-height: 849.4px;
   width: 100%;
 
   .task__content {
