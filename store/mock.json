@@ -1,15 +1,46 @@
 {
-  "task1": {
-    "title": "Какая форма показывает трети ?",
-    "img": "../assets/quarter.png",
-    "images": [
-      "/_nuxt/assets/thirds.png",
-      "/_nuxt/assets/thirds_two.png",
-      "/_nuxt/assets/quarter.png"
-    ],
-    "variants": [
-      "a", "b", "c"
-    ],
-    "correct": ["a", "b"]
-  }
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Какая форма показывает трети ?",
+      "img": "../assets/quarter.png",
+      "images": [
+        "/_nuxt/assets/thirds.png",
+        "/_nuxt/assets/thirds_two.png",
+        "/_nuxt/assets/quarter.png"
+      ],
+      "variants": [
+        "a", "b", "c"
+      ],
+      "correct": ["a", "b"]
+    },
+    {
+      "id": 2,
+      "title": "Какая форма показывает трети ?",
+      "img": "../assets/quarter.png",
+      "images": [
+        "/_nuxt/assets/quarter.png",
+        "/_nuxt/assets/thirds.png",
+        "/_nuxt/assets/thirds_two.png"
+      ],
+      "variants": [
+        "a", "b", "c"
+      ],
+      "correct": ["b", "c"]
+    },
+    {
+      "id": 3,
+      "title": "Какая форма показывает четверти ?",
+      "img": "../assets/quarter.png",
+      "images": [
+        "/_nuxt/assets/thirds.png",
+        "/_nuxt/assets/quarter.png",
+        "/_nuxt/assets/thirds_two.png"
+      ],
+      "variants": [
+        "a", "b", "c"
+      ],
+      "correct": ["b"]
+    }
+  ]
 }

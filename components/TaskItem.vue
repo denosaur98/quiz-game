@@ -1,8 +1,8 @@
 <template>
   <div class="task">
-    <div class="task__content" v-for="task in mock" :key="task.title">
+    <div class="task__content" v-if="currentTask" :key="currentTask.id">
       <div class="content__header">
-        <button class="header__close">
+        <button class="header__close" @click="removeTask">
           <FontAwesomeIcon :icon="faXmark" class="close__icon"/>
         </button>
         <h1 class="header__title">выберите &nbsp;правильный &nbsp;ответ</h1>
@@ -13,30 +13,35 @@
           <div class="modal__window" v-if="isModalOpen" @click="toggleModal">
             <p class="window__title">Правильный ответ:</p>
             <div class="window__answers">
-              <p v-for="correct in task.correct">{{ correct }}</p>
+              <p v-for="correct in currentTask.correct">{{ correct }}</p>
             </div>
           </div>
         </div>
       </div>
-      <h1 class="content__question">{{ task.title }}</h1>
+      <h1 class="content__question">{{ currentTask.title }}</h1>
       <div class="content__variants">
         <div class="variants__pictures">
-          <img v-for="(image, index) in task.images" :src="image" :key="index">
+          <img v-for="(image, index) in currentTask.images" :src="image" :key="index">
         </div>
         <div class="variants__letter">
-          <p v-for="(letter, index) in task.variants" :key="index">{{ letter }}</p>
+          <p v-for="(letter, index) in currentTask.variants" :key="index">{{ letter }}</p>
         </div>
       </div>
       <div class="content__answers">
-        <button class="answer__btn" v-for="variant in task.variants">{{ variant }}</button>
-        <button class="check__btn" @click="answerSubmit">ответ</button>
+        <button 
+          :class="{ 'answer__btn': !selectedVariants.includes(variant), 'answer__btn-active': selectedVariants.includes(variant) }" 
+          v-for="variant in currentTask.variants" 
+          @click="toggleVariants(variant)">
+          {{ variant }}
+        </button>
+        <button class="check__btn" @click="submitAnswer(currentTask.id)">ответ</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import mock from '~/store/mock.json'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -48,8 +53,32 @@ function toggleModal() {
   isModalOpen.value = !isModalOpen.value
 }
 
-function answerSubmit() {
+const selectedVariants = ref([])
+function toggleVariants(variant) {
+  const index = selectedVariants.value.indexOf(variant)
+  if(index === -1) {
+    selectedVariants.value.push(variant)
+  } else {
+    selectedVariants.value.splice(index, 1)
+  }
+}
 
+const currentTask = ref(mock.tasks[0])
+function submitAnswer(id) {
+  const taskIndex = mock.tasks.findIndex(i => i.id === id)
+  const task = mock.tasks.find(i => i.id === id)
+  const variants = selectedVariants.value.slice().sort().toString()
+  const correct = task.correct.slice().sort().toString()
+
+  if(variants === correct) {
+    if(mock.tasks.length - 1 > taskIndex) {
+      currentTask.value = mock.tasks[taskIndex + 1]
+    } else {
+      currentTask.value = mock.tasks[0]
+    }
+  } else {
+    currentTask.value = mock.tasks[taskIndex]
+  }
 }
 </script>
 
@@ -167,6 +196,22 @@ function answerSubmit() {
         border-radius: 5px;
         font-size: 50px;
         text-transform: uppercase;
+        opacity: 1;
+
+        &:hover {
+          background: #ffe5e5;
+          transition: 0.3s;
+        }
+      }
+
+      .answer__btn-active {
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        font-size: 50px;
+        text-transform: uppercase;
+        background: #319b00;
 
         &:hover {
           background: #ffe5e5;
