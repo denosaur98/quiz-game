@@ -1,7 +1,8 @@
-export default defineNuxtConfig({
+export default {
   devtools: { enabled: true },
+  ssr: false,
   target: 'static',
   router: {
-    base: '/https://github.com/denosaur98/quiz-game/'
-  }
-})
+    base: '/quiz-game/'
+  },
+}
