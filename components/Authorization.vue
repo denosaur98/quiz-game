@@ -105,6 +105,10 @@ function signIn() {
         opacity: 0.5;
         transition: 0.3s;
       }
+
+      @media (max-width: 400px) {
+        width: auto;
+      }
     }
 
     .user__info {

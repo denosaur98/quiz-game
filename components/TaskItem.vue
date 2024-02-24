@@ -201,6 +201,11 @@ function submitAnswer(id) {
         font-size: 35px;
         width: 400px;
       }
+
+      @media (max-width: 400px) {
+        width: 330px;
+        font-size: 30px;
+      }
     }
 
     .content__warring {
@@ -225,6 +230,10 @@ function submitAnswer(id) {
 
       @media (max-width: 580px) {
         width: 400px;
+      }
+
+      @media (max-width: 400px) {
+        width: 330px;
       }
 
       .variants__pictures {
